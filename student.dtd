@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 <!ELEMENT student EMPTY>
+=======
+<!ATTLIST student 
+	fullname CDATA #REQUIRED
+	group (К6-361|К6-362) #REQUIRED
+>
+>>>>>>> 237766b7bc74e76fbd723a3b8f6b4300a39d0891
