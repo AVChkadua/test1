@@ -13,7 +13,7 @@
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="hardcover"/>
-							<xs:enumeration value="softcover"/>
+							<xs:enumeration value="papercover"/>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:attribute>

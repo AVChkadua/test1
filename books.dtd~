@@ -6,7 +6,7 @@
 
 <!ATTLIST book
 	category CDATA #REQUIRED
-	cover (hardback|paperback) #IMPLIED
+	cover (hardback|papreback) #IMPLIED
 >
 <!ATTLIST title
 	lang CDATA "en"

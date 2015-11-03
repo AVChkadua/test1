@@ -46,8 +46,21 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-				<xs:element name="year" type="xs:decimal" use="required"/>
-				<xs:element name="price" type="xs:decimal" use="required"/>
+				<xs:element name="year" type="xs:decimal" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minExclusive value="1900"/>
+							<xs:maxExclusive value="2014"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="price" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:complexType>
