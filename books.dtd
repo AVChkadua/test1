@@ -1,9 +1,9 @@
 <!ELEMENT bookstore (book*)>
-<!ELEMENT book (title)>
-<!ELEMENT book (author+)>
-<!ELEMENT book (year)>
-<!ELEMENT book (price)>
-
+<!ELEMENT book (title,author+,year,price)>
+<!ELEMENT title ANY>
+<!ELEMENT author ANY>
+<!ELEMENT year ANY>
+<!ELEMENT price ANY>
 <!ATTLIST book
 	category CDATA #REQUIRED
 	cover (hardback|paperback) #IMPLIED
