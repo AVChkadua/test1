@@ -1,69 +1,62 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:complexType name="bookstore">
+	<xs:complexType name="bookstoretype">
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
-			<xs:element ref="book" type="book"/>
+			<xs:element name="book" type="booktype"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="book">
-		<xs:complexType>
-			<xs:attributeGroup>
-				<xs:attribute name="category" type="xs:string" use="required"/>
-				<xs:attribute name="cover">
+
+	<xs:complexType name="booktype" mixed="true">
+		<xs:attribute name="category" type="xs:string" use="required"/>
+		<xs:attribute name="cover">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="hardcover"/>
+					<xs:enumeration value="papercover"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:sequence>
+			<xs:element name="title" type="xs:string" use="required">
+				<xs:attribute name="lang" use="required">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:enumeration value="hardcover"/>
-							<xs:enumeration value="papercover"/>
+							<xs:length value="2"/>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:attribute>
-			</xs:attributeGroup>
-			<xs:sequence>
-				<xs:element name="title" type="xs:string" use="required">
-					<xs:complexType>
-						<xs:attributeGroup>
-							<xs:attribute name="lang" use="required">
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:length value="2"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:attribute>
-						</xs:attributeGroup>
-					</xs:complexType>
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:minLength value="2"/>
-							<xs:maxLength value="30"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				<xs:element name="author" minOccurs="1" maxOccurs="unbounded">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:minLength value="2"/>
-							<xs:maxLength value="30"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				<xs:element name="year" type="xs:decimal" use="required">
-					<xs:simpleType>
-						<xs:restriction base="xs:decimal">
-							<xs:minExclusive value="1900"/>
-							<xs:maxExclusive value="2014"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				<xs:element name="price" use="required">
-					<xs:simpleType>
-						<xs:restriction base="xs:decimal">
-							<xs:minInclusive value="0"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="author" minOccurs="1" maxOccurs="unbounded">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2"/>
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="year" type="xs:decimal" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minExclusive value="1900"/>
+						<xs:maxExclusive value="2014"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="price" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
-	<xs:element name="bookstore" type="bookstore"/>
+	<xs:element name="bookstore" type="bookstoretype"/>
 </xs:schema>
