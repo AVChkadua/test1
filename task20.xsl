@@ -3,7 +3,6 @@
 
 <xsl:template match="/">
 	<xsl:for-each select="//book">
-		<xsl:sort select="./price">
 		<xsl:value-of select="./title"/>
 		<xsl:if test="position() != last()">, </xsl:if>
 	</xsl:for-each>
