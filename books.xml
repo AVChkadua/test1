@@ -1,3 +1,4 @@
+<!DOCTYPE mephi SYSTEM "mephi.dtd">
 <bookstore>
   <book category="cooking">
     <title lang="en">Everyday Italian</title>
